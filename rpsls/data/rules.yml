@@ -1,0 +1,16 @@
+---
+SCISSORS:
+  PAPER: "Cuts"
+  LIZARD: "Decapitates"
+PAPER:
+  ROCK: "Covers"
+  SPOCK: "Disproves"
+ROCK:
+  LIZARD: "Crushes"
+  SCISSORS: "Crushes"
+LIZARD:
+  SPOCK: "Poisons"
+  PAPER: "Eats"
+SPOCK:
+  SCISSORS: "Smashes"
+  ROCK: "Vaporizes"
