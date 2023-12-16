@@ -1,6 +1,6 @@
+#!/usr/bin/env python
 '''
-    This module deals with loading the data file,
-    store rules and validates.
+    This module provides the complete game logic.
 '''
 import os
 

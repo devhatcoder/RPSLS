@@ -1,8 +1,13 @@
+#!/usr/bin/env python
+'''
+    This is the main script to run the game.
+'''
 from random import choice
 
 from backend.dataloader import Ruleset
 
 def get_input(text=""):
+    ''' Takes user input and pre-process before use. '''
     print('Type "Q" to quit the game.')
     print(text)
     user_in = input('Enter your choice: ').strip().upper()
@@ -12,6 +17,7 @@ def get_input(text=""):
     return user_in
 
 def play(ruleset: Ruleset):
+    ''' The complete steps for the gameplay. '''
     items = ruleset.get_items()
     player_item = get_input(f'Your options: {items}')
     while player_item not in items:
