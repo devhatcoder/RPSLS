@@ -4,7 +4,7 @@
 '''
 from random import choice
 
-from backend.dataloader import Ruleset
+from rpsls.backend.dataloader import Ruleset
 
 def get_input(text=""):
     ''' Takes user input and pre-process before use. '''
@@ -13,7 +13,7 @@ def get_input(text=""):
     user_in = input('Enter your choice: ').strip().upper()
     if user_in == "Q":
         print('Thanks for playing! Goodbye!!')
-        exit(0)
+        quit()
     return user_in
 
 def play(ruleset: Ruleset):
