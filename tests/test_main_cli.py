@@ -1,17 +1,17 @@
 #!/usr/bin/env python
 from unittest.mock import patch
 
-import rpsls.main
-from rpsls.backend.dataloader import Ruleset
+import rpsls.main_cli
+from rpsls.backend import Ruleset
 
 @patch('builtins.input', return_value='scissors')
 def test_get_input(input):
-    assert rpsls.main.get_input() == 'SCISSORS',\
+    assert rpsls.main_cli.get_input() == 'SCISSORS',\
         "Output of get_input function does not match expected."
 
-@patch('rpsls.main.get_input', return_value='ROCK')
+@patch('rpsls.main_cli.get_input', return_value='ROCK')
 def test_play(get_input, capsys):
-    rpsls.main.play(Ruleset())
+    rpsls.main_cli.play(Ruleset())
     std_out_err = capsys.readouterr()
     results = ['You win! Congratulations!!',\
                'You lose! Better luck next time!!', 'No one wins!']
@@ -21,7 +21,7 @@ def test_play(get_input, capsys):
 @patch('builtins.input', return_value='q')
 def test_main(input, capsys):
     try:
-        rpsls.main.main()
+        rpsls.main_cli.main()
     except SystemExit:
         pass
     std_out_err = capsys.readouterr()

@@ -13,7 +13,7 @@ The rules of the game can be found in the pages mentioned above or by simply sea
 This project is my own attempt to implement the game in Pyhton programming language as a computer program where you as a player can play against the computer.
 
 ### How to run the game?
-* You would need *python3.9* or above installed on your computer
+* You would need *python3.10* or above installed on your computer
 * Clone/download the project and navigate to the project directory
 * Install the dependencies
   - Using *poetry*: `poetry install`, or
@@ -21,3 +21,4 @@ This project is my own attempt to implement the game in Pyhton programming langu
 * Run the game
   - Using *poetry*: `poetry run python3 rpsls/main.py`, or
   - Using *python*: `python3 rpsls/main.py`
+  - To run the game in CLI mode, use the `rpsls/main_cli.py` file

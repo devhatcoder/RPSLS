@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 '''
-    This module provides the complete game logic.
+    This module deals with the game rules.
 '''
+
 import os
 
 import yaml
@@ -10,7 +11,7 @@ class Ruleset():
 
     def __init__(self) -> None:
         file_path = os.path.join(os.path.dirname(os.path.realpath(__file__)),
-                                '..', 'data', 'rules.yml')
+                                'data', 'rules.yml')
         with open(file_path, 'r') as rule_file:
             self.__rules = yaml.safe_load(rule_file)
 
@@ -31,17 +32,15 @@ class Ruleset():
             print(f'[ERROR] Invalid input: "{item_name}"')
             exit(1)
 
-    def get_winner(self, player_item, machine_item):
+    def get_winner(self, player_item, machine_item) -> tuple:
         '''
             Get the winner from two choices.
         '''
         player_beats = self.get_losers(player_item)
         machine_beats = self.get_losers(machine_item)
         if machine_item in player_beats:
-            print(f'{player_item} {player_beats[machine_item]} {machine_item}')
-            return player_item
+            return (player_item, player_beats[machine_item], machine_item)
         elif player_item in machine_beats:
-            print(f'{machine_item} {machine_beats[player_item]} {player_item}')
-            return machine_item
+            return (machine_item, machine_beats[player_item], player_item)
         else:
-            return False
+            return (None, None, None)
