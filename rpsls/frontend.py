@@ -27,9 +27,7 @@ class AppGui:
 
         self.ruleset = ruleset
 
-        self.main_window = tk.Tk()
-        self.main_window.geometry("680x440")
-        self.main_window.title("RPSLS")
+        self.main_window = AppWindow("RPSLS", 680, 440)
 
         self.title_label = tk.Label(self.main_window,
                                     text="Rock Paper Scissors Lizard Spock!",
@@ -50,34 +48,19 @@ class AppGui:
         img_lizard = PhotoImage(file=os.path.join(IMG_FILES_DIR, 'lizard.png'))
         img_spock = PhotoImage(file=os.path.join(IMG_FILES_DIR, 'spock.png'))
 
-        self.btn_rock = tk.Button(self.button_frame_row0,
-                                  text=ROCK, font=('Arial', 18),
-                                  command=lambda: self.show_result(ROCK),
-                                  image=img_rock, compound=tk.TOP)
+        self.btn_rock = WeaponButton(self.button_frame_row0, ROCK, img_rock, self.show_result)
         self.btn_rock.grid(row=0, column=0, sticky=tk.W+tk.E)
 
-        self.btn_paper = tk.Button(self.button_frame_row0,
-                                   text=PAPER, font=('Arial', 18),
-                                   command=lambda: self.show_result(PAPER),
-                                   image=img_paper, compound=tk.TOP)
+        self.btn_paper = WeaponButton(self.button_frame_row0, PAPER, img_paper, self.show_result)
         self.btn_paper.grid(row=0, column=1, sticky=tk.W+tk.E)
 
-        self.btn_scissors = tk.Button(self.button_frame_row0,
-                                      text=SCISSORS, font=('Arial', 18),
-                                      command=lambda: self.show_result(SCISSORS),
-                                      image=img_scissors, compound=tk.TOP)
+        self.btn_scissors = WeaponButton(self.button_frame_row0, SCISSORS, img_scissors, self.show_result)
         self.btn_scissors.grid(row=0, column=2, sticky=tk.W+tk.E)
 
-        self.btn_lizard = tk.Button(self.button_frame_row1,
-                                    text=LIZARD, font=('Arial', 18),
-                                    command=lambda: self.show_result(LIZARD),
-                                    image=img_lizard, compound=tk.TOP)
+        self.btn_lizard = WeaponButton(self.button_frame_row1, LIZARD, img_lizard, self.show_result)
         self.btn_lizard.grid(row=0, column=0, sticky=tk.W+tk.E)
 
-        self.btn_spock = tk.Button(self.button_frame_row1,
-                                   text=SPOCK, font=('Arial', 18),
-                                   command=lambda: self.show_result(SPOCK),
-                                   image=img_spock, compound=tk.TOP)
+        self.btn_spock = WeaponButton(self.button_frame_row1, SPOCK, img_spock, self.show_result)
         self.btn_spock.grid(row=0, column=1, sticky=tk.W+tk.E)
 
         self.button_frame_row0.pack(side='top', padx=20, pady=5)
@@ -100,6 +83,26 @@ class AppGui:
                 exit()
         else:
             messagebox.showinfo(title='Tie!', message=f"It's a tie!\n\nPlay again!")
+
+class AppWindow(tk.Tk):
+    def __init__(self, title, res_x, res_y, center=True) -> None:
+        super().__init__()
+        self.title(title)
+        if center:
+            center_x = int((self.winfo_screenwidth() / 2) - (res_x / 2))
+            center_y = int((self.winfo_screenheight() / 2) - (res_y / 2))
+            self.geometry(f"{res_x}x{res_y}+{center_x}+{center_y}")
+        else:
+            self.geometry(f"{res_x}x{res_y}")
+
+class WeaponButton(tk.Button):
+    def __init__(self, master, btn_name: str, btn_img, btn_cmd) -> None:
+        super().__init__(master=master,
+                         text=btn_name.capitalize(),
+                         font=('Arial', 18),
+                         command= lambda: btn_cmd(btn_name),
+                         image=btn_img,
+                         compound=tk.TOP)
 
 if __name__ == '__main__':
     AppGui(Ruleset())
