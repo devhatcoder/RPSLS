@@ -6,6 +6,7 @@ from random import choice
 
 from rpsls.backend import Ruleset
 
+
 def get_input(text=""):
     ''' Takes user input and pre-process before use. '''
     print('Type "Q" to quit the game.')
@@ -15,6 +16,7 @@ def get_input(text=""):
         print('Thanks for playing! Goodbye!!')
         quit()
     return user_in
+
 
 def play(ruleset: Ruleset):
     ''' The complete steps for the gameplay. '''
@@ -41,6 +43,7 @@ def play(ruleset: Ruleset):
         print(':|'*6)
     print()
 
+
 def main():
     ruleset = Ruleset()
     print('Welcome to the game of "Rock Paper Scissors Lizar Spock!"')
@@ -48,5 +51,6 @@ def main():
         play(ruleset)
         get_input('Want to play again? (Y)')
 
+
 if __name__ == '__main__':
-    main()    
+    main()

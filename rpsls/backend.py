@@ -7,6 +7,7 @@ import os
 
 import yaml
 
+
 class Ruleset():
 
     def __init__(self) -> None:
@@ -20,7 +21,7 @@ class Ruleset():
             Get the items from rule file.
         '''
         return list(self.__rules.keys())
-    
+
     def get_losers(self, item_name: str) -> dict:
         '''
             Get the loser items as a dict which cannot beat the

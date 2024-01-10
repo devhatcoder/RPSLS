@@ -68,7 +68,7 @@ class AppGui:
 
         self.main_window.mainloop()
 
-    def show_result(self, player_item: str=None):
+    def show_result(self, player_item: str = None):
         ''' Shows the result on selection / button click.'''
         player_item = player_item.upper()
         machine_item = choice(self.ruleset.get_items())
@@ -82,7 +82,8 @@ class AppGui:
             if not messagebox.askyesno(title='You lose!', message=f"You have lost!\n{msg_result}\n\nPlay again?"):
                 exit()
         else:
-            messagebox.showinfo(title='Tie!', message=f"It's a tie!\n\nPlay again!")
+            messagebox.showinfo(title='Tie!', message="It's a tie!\n\nPlay again!")
+
 
 class AppWindow(tk.Tk):
     def __init__(self, title, res_x, res_y, center=True) -> None:
@@ -95,14 +96,16 @@ class AppWindow(tk.Tk):
         else:
             self.geometry(f"{res_x}x{res_y}")
 
+
 class WeaponButton(tk.Button):
     def __init__(self, master, btn_name: str, btn_img, btn_cmd) -> None:
         super().__init__(master=master,
                          text=btn_name.capitalize(),
                          font=('Arial', 18),
-                         command= lambda: btn_cmd(btn_name),
+                         command=lambda: btn_cmd(btn_name),
                          image=btn_img,
                          compound=tk.TOP)
+
 
 if __name__ == '__main__':
     AppGui(Ruleset())
