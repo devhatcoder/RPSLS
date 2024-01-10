@@ -7,7 +7,7 @@ from rpsls.backend import Ruleset
 
 @patch('builtins.input', return_value='scissors')
 def test_get_input(input):
-    assert rpsls.main_cli.get_input() == 'SCISSORS',\
+    assert rpsls.main_cli.get_input() == 'SCISSORS', \
         "Output of get_input function does not match expected."
 
 

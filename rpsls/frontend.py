@@ -35,8 +35,8 @@ class AppGui:
         self.title_label.pack(padx=20, pady=25)
 
         self.instruction_label = tk.Label(self.main_window,
-                                    text="Choose your weapon:",
-                                    font=('Arial', 16))
+                                          text="Choose your weapon:",
+                                          font=('Arial', 16))
         self.instruction_label.pack(padx=20, pady=10)
 
         self.button_frame_row0 = tk.Frame(self.main_window)

@@ -12,7 +12,7 @@ class Ruleset():
 
     def __init__(self) -> None:
         file_path = os.path.join(os.path.dirname(os.path.realpath(__file__)),
-                                'data', 'rules.yml')
+                                 'data', 'rules.yml')
         with open(file_path, 'r') as rule_file:
             self.__rules = yaml.safe_load(rule_file)
 
