@@ -8,7 +8,7 @@ Learn more about the game [here](http://www.samkass.com/theories/RPSSL.html).
 
 The game was mentioned several times is the popular TV series [Big Bang Theory](https://bigbangtheory.fandom.com/wiki/Rock,_Paper,_Scissors,_Lizard,_Spock) which is where I came to know about this game.
 
-The rules of the game can be found in the pages mentioned above or by simply searching on the internet.
+The rules of the game can be found in the `Game` menu.
 
 This project is my own attempt to implement the game in Pyhton programming language as a computer program where you as a player can play against the computer.
 

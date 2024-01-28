@@ -29,6 +29,16 @@ class AppGui:
 
         self.main_window = AppWindow("RPSLS", 680, 440)
 
+        self.main_menu = tk.Menu(self.main_window)
+        self.file_menu = tk.Menu(self.main_menu)
+        self.file_menu.add_command(label='Exit', command=exit)
+        self.main_menu.add_cascade(label='File', menu=self.file_menu)
+        self.game_menu = tk.Menu(self.main_menu)
+        self.game_menu.add_command(label='Rules', command=self.show_rules)
+        self.main_menu.add_cascade(label='Game', menu=self.game_menu)
+
+        self.main_window.configure(menu=self.main_menu)
+
         self.title_label = tk.Label(self.main_window,
                                     text="Rock Paper Scissors Lizard Spock!",
                                     font=('Arial', 24))
@@ -84,6 +94,20 @@ class AppGui:
         else:
             messagebox.showinfo(title='Tie!', message="It's a tie!\n\nPlay again!")
 
+    def show_rules(self):
+        ''' Shows the ruleset in Top level window. '''
+        rules_window = tk.Toplevel(self.main_window)
+        rules_window.title('Game Rules')
+        rules_window.minsize(width=320, height=260)
+        rules_window.geometry('320x260')
+        rules_text = ''
+        for item in self.ruleset.get_items():
+            losers = self.ruleset.get_losers(item)
+            for loser in losers.keys():
+                rules_text = f"{rules_text}\n- {item} {losers[loser]} {loser}"
+        rules_label = tk.Label(rules_window, text=f"{rules_text}")
+        rules_label.pack(padx=20, pady=20)
+
 
 class AppWindow(tk.Tk):
     def __init__(self, title, res_x, res_y, center=True) -> None:
@@ -95,6 +119,7 @@ class AppWindow(tk.Tk):
             self.geometry(f"{res_x}x{res_y}+{center_x}+{center_y}")
         else:
             self.geometry(f"{res_x}x{res_y}")
+        self.minsize(width=680, height=440)
 
 
 class WeaponButton(tk.Button):
