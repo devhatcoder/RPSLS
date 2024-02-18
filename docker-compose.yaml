@@ -1,0 +1,7 @@
+version: "3"
+services:
+  rpsls:
+    build:
+      context: .
+    stdin_open: true
+    tty: true
