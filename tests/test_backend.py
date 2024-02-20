@@ -4,7 +4,7 @@ import os
 import pytest
 
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'rpsls'))
-from backend import Ruleset
+from backend import Ruleset # noqa: E402
 
 
 @pytest.fixture
