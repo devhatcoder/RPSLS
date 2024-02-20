@@ -8,7 +8,7 @@ from tkinter import messagebox
 from tkinter import PhotoImage
 from random import choice
 
-from rpsls.backend import Ruleset
+from backend import Ruleset
 
 
 # Choices
@@ -18,7 +18,7 @@ SCISSORS = 'Scissors'
 LIZARD = 'Lizard'
 SPOCK = 'Spock'
 # Image files directory
-IMG_FILES_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'data', 'images')
+IMG_FILES_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data', 'images')
 
 
 class AppGui:

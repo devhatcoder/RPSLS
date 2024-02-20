@@ -2,7 +2,6 @@
 '''
     This module deals with the game rules.
 '''
-
 import os
 
 import yaml

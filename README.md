@@ -22,8 +22,3 @@ This project is my own attempt to implement the game in Pyhton programming langu
   - Using *poetry*: `poetry run python3 rpsls/main.py`, or
   - Using *python*: `python3 rpsls/main.py`
   - To run the game in CLI mode, use the `rpsls/main_cli.py` file
-
-
-> [!NOTE]
-> If you are facing 'rpsls' module not found error, execute the following command and then try to run the program again:
-> `pip3 install -e .`

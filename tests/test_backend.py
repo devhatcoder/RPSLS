@@ -1,6 +1,10 @@
+import sys
+import os
+
 import pytest
 
-from rpsls.backend import Ruleset
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'rpsls'))
+from backend import Ruleset
 
 
 @pytest.fixture

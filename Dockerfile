@@ -2,8 +2,10 @@ FROM python:3.10-alpine3.18
 
 WORKDIR /app
 
-COPY . .
+COPY ./requirements.txt /app/
 
-RUN pip3 install -e .
+RUN pip3 install -r requirements.txt
 
-CMD ["python3", "rpsls/main_cli.py"]
+COPY ./rpsls /app/
+
+CMD ["python3", "main_cli.py"]

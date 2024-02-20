@@ -4,7 +4,7 @@
 '''
 from random import choice
 
-from rpsls.backend import Ruleset
+from backend import Ruleset
 
 
 def get_input(text=""):

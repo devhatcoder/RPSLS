@@ -2,9 +2,8 @@
 '''
     Main script to run the game in GUI.
 '''
-
-from rpsls.frontend import AppGui
-from rpsls.backend import Ruleset
+from frontend import AppGui
+from backend import Ruleset
 
 
 def main():
