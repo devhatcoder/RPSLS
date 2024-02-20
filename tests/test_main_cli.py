@@ -5,8 +5,8 @@ import os
 from unittest.mock import patch
 
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'rpsls'))
-import main_cli # noqa: E402
-from backend import Ruleset # noqa: E402
+import main_cli  # noqa: E402
+from backend import Ruleset  # noqa: E402
 
 
 @patch('builtins.input', return_value='scissors')
